@@ -29,17 +29,21 @@ const Listdata = () => {
     setRefresh(true);
     fetchData();
     setRefresh(false);
+  
   };
 
-  const deleteData = (id) => {
-    fetch('${jsonUrl}/${id}', { method: 'DELETE' })
+  function deleteData(id) {
+    fetch(jsonUrl + '/' + id, {
+      method: 'DELETE',
+    })
       .then((response) => response.json())
-      .then(() => {
-        Alert.alert('Data terhapus');
-        fetchData();
+      .then((json) => {
+        console.log(json);
+        alert('Data terhapus');
+        refreshPage();
       })
-      .catch((error) => console.error(error));
-  };
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>

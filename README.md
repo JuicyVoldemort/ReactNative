@@ -18,7 +18,7 @@
 3. **Vercel**: Mempublikasikan peta untuk ditampilkan di dalam webview.
 4. **React Native**: Framework utama aplikasi hybrid.
 
-## 📧 Kontak Kami
+## 📧 Sumber Data
 - **Pengguna**: Input manual dari pemakaian 
 - **Server Lokal JSON**: Data yang sudah ada di dalam JSON Server
 

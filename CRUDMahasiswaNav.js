@@ -2,10 +2,11 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faUserPen, faPlusCircle, faEdit } from '@fortawesome/free-solid-svg-icons'; // Ensure icons are properly imported
+import { faUserPen, faPlusCircle, faEdit, faMap } from '@fortawesome/free-solid-svg-icons'; // Add faMap for the map icon
 import Createdata from './Createdata';
 import Listdata from './Listdata';
 import EditData from './EditData'; // Import the EditData component
+import MapScreen from './MapScreen'; // Import the MapScreen component
 
 function HomeScreen() {
   return <Createdata />;
@@ -25,7 +26,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        {/* Tab for adding data */}
+        {/* Tab for adding data
         <Tab.Screen
           name="Tambah"
           component={HomeScreen}
@@ -35,10 +36,10 @@ export default function App() {
               <FontAwesomeIcon icon={faPlusCircle} color={color} size={20} />
             ),
           }}
-        />
+        /> */}
         {/* Tab for listing data */}
         <Tab.Screen
-          name="Data Mahasiswa"
+          name="Orders"
           component={SettingsScreen}
           options={{
             tabBarIcon: ({ color }) => (
@@ -46,9 +47,19 @@ export default function App() {
             ),
           }}
         />
+        {/* Tab for displaying the map */}
+        <Tab.Screen
+          name="Mark Location"
+          component={MapScreen} // Ini tampilan peta nya jangan lupa namanya MapScreen
+          options={{
+            tabBarIcon: ({ color }) => (
+              <FontAwesomeIcon icon={faMap} color={color} size={20} />
+            ),
+          }}
+        />
         {/* Tab for editing data */}
         <Tab.Screen
-          name="Edit"
+          name="Edit Orders"
           component={EditdataScreen}
           options={{
             headerShown: false,

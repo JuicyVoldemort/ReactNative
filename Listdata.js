@@ -39,7 +39,7 @@ const Listdata = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log(json);
-        alert('Data terhapus');
+        alert('Order Deleted');
         refreshPage();
       })
   }
@@ -76,9 +76,9 @@ const Listdata = () => {
               <View style={styles.form}>
                 <Button
                   title="Hapus"
-                  onPress={() => Alert.alert('Hapus data', 'Yakin akan menghapus data ini?', [
-                    { text: 'Tidak', onPress: () => console.log('Tidak') },
-                    { text: 'Ya', onPress: () => deleteData(item.id) },
+                  onPress={() => Alert.alert('Delete Order', 'This action can not be undone, are you sure?', [
+                    { text: 'No', onPress: () => console.log('Tidak') },
+                    { text: 'Yes', onPress: () => deleteData(item.id) },
                   ])}
                   color="red"
                 />

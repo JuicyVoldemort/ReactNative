@@ -66,7 +66,7 @@ const EditData = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        alert(selectedUser ? 'Data berhasil diperbarui!' : 'Data berhasil ditambahkan!');
+        alert(selectedUser ? 'Order Updated!' : 'Order Successfully added!');
         resetForm();
         refreshPage();
       })
@@ -100,7 +100,7 @@ const EditData = () => {
     })
       .then((response) => response.json())
       .then((json) => {
-        alert('Data berhasil dihapus!');
+        alert('Order Deleted');
         refreshPage();
       })
       .catch((error) => console.error(error));
@@ -110,30 +110,30 @@ const EditData = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <Text style={styles.title}>
-          {selectedUser ? 'Edit Data Mahasiswa' : 'Edit Data Mahasiswa'}
+          {selectedUser ? 'Edit Orders' : 'Edit Orders'}
         </Text>
         <View style={styles.form}>
           <TextInput
             style={styles.input}
-            placeholder="Nama Depan"
+            placeholder="Sender"
             value={first_name}
             onChangeText={(value) => setFirstName(value)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Nama Belakang"
+            placeholder="Receiver"
             value={last_name}
             onChangeText={(value) => setLastName(value)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Kelas"
+            placeholder="Item"
             value={kelas}
             onChangeText={(value) => setKelas(value)}
           />
           <TextInput
             style={styles.input}
-            placeholder="Jenis Kelamin"
+            placeholder="Receiver Contact"
             value={gender}
             onChangeText={(value) => setGender(value)}
           />
@@ -143,7 +143,7 @@ const EditData = () => {
             value={email}
             onChangeText={(value) => setEmail(value)}
           />
-          <Button title={selectedUser ? 'Perbarui Data' : 'Tambah Data'} onPress={submit} />
+          <Button title={selectedUser ? 'Update Data' : 'Update Data'} onPress={submit} />
           {selectedUser && <Button title="Batal" color="red" onPress={resetForm} />}
         </View>
 
@@ -171,9 +171,9 @@ const EditData = () => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() =>
-                    Alert.alert('Hapus data', 'Yakin akan menghapus data ini?', [
-                      { text: 'Tidak', onPress: () => {} },
-                      { text: 'Ya', onPress: () => deleteData(item.id) },
+                    Alert.alert('Delete data', 'This action can not be undone, are you sure?', [
+                      { text: 'No', onPress: () => {} },
+                      { text: 'Yes', onPress: () => deleteData(item.id) },
                     ])
                   }>
                   <FontAwesomeIcon icon={faTrash} size={20} color="red" />

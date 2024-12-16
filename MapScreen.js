@@ -6,7 +6,7 @@ const MapScreen = () => {
   return (
     <View style={{ flex: 1 }}>
       <WebView
-        source={{ uri: 'https://ionic-leaflet-map.firebaseapp.com/' }}
+        source={{ uri: 'https://peta-calvinros-projects.vercel.app/' }}
         style={{ flex: 1 }}
       />
     </View>
